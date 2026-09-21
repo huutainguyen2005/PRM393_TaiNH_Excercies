@@ -1,0 +1,102 @@
+a# =========================
+# Flutter / Dart
+# =========================
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+/build/
+
+# Generated files
+*.g.dart
+*.freezed.dart
+
+# =========================
+# Android
+# =========================
+android/.gradle/
+android/local.properties
+android/app/debug/
+android/app/profile/
+android/app/release/
+android/.idea/
+
+# Keystore / signing
+*.jks
+*.keystore
+key.properties
+
+# =========================
+# iOS
+# =========================
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/ephemeral/
+ios/Flutter/Generated.xcconfig
+ios/Flutter/flutter_export_environment.sh
+ios/Runner/GeneratedPluginRegistrant.*
+
+# Xcode
+**/xcuserdata/
+**/*.xcuserstate
+**/*.xcscmblueprint
+DerivedData/
+
+# =========================
+# macOS
+# =========================
+macos/Pods/
+macos/Flutter/ephemeral/
+
+# =========================
+# Windows
+# =========================
+windows/flutter/ephemeral/
+
+# =========================
+# Linux
+# =========================
+linux/flutter/ephemeral/
+
+# =========================
+# IDE
+# =========================
+.idea/
+.vscode/
+
+# Keep VS Code settings if wanted:
+# !.vscode/settings.json
+# !.vscode/launch.json
+
+# =========================
+# OS
+# =========================
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# =========================
+# Logs / temporary files
+# =========================
+*.log
+*.tmp
+*.temp
+
+# =========================
+# Environment / secrets
+# =========================
+.env
+.env.*
+!.env.example
+
+# =========================
+# Firebase / credentials
+# =========================
+google-services.json
+GoogleService-Info.plist
+
+# =========================
+# Coverage
+# =========================
+coverage/
