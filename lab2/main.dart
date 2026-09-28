@@ -1,1 +1,311 @@
-import 'dart:async';void main() async {  print('========== DART ESSENTIALS PRACTICE LAB ==========\n');  exercise1();  exercise2();  exercise3();  exercise4();  await exercise5();}// ==================================================// EXERCISE 1 – BASIC SYNTAX & DATA TYPES// ==================================================void exercise1() {  print('========== EXERCISE 1 ==========');  // Declare variables using basic Dart data types.  int age = 21;  double height = 1.70;  String name = 'Tai';  bool isStudent = true;  // Print values using string interpolation.  print('Name: $name');  print('Age: $age');  print('Height: $height m');  print('Is student: $isStudent');  // String interpolation can also contain expressions.  print('Next year, $name will be ${age + 1} years old.');  print('');}// ==================================================// EXERCISE 2 – COLLECTIONS & OPERATORS// ==================================================void exercise2() {  print('========== EXERCISE 2 ==========');  // Create a List of integers.  List<int> numbers = [10, 20, 30, 40, 50];  print('Original list: $numbers');  // Indexing is used to access an element in a List.  print('First number: ${numbers[0]}');  // Arithmetic operators.  int sum = numbers[0] + numbers[1];  int difference = numbers[2] - numbers[0];  print('10 + 20 = $sum');  print('30 - 10 = $difference');  // Comparison operator.  print('Is 50 greater than 30? ${50 > 30}');  // Create a Set.  // A Set stores unique values.  Set<int> uniqueNumbers = {10, 20, 20, 30, 30, 40};  print('Set: $uniqueNumbers');  // add() adds a value to the Set.  uniqueNumbers.add(50);  // remove() removes a value from the Set.  uniqueNumbers.remove(10);  print('Set after add/remove: $uniqueNumbers');  // Create a Map using key-value pairs.  Map<String, dynamic> student = {    'name': 'Tai',    'age': 21,    'isStudent': true,  };  // Access Map values using their keys.  print('Student name: ${student['name']}');  print('Student age: ${student['age']}');  // Logical operators.  bool hasGoodScore = true;  bool attendsClass = true;  print(    'Eligible: ${hasGoodScore && attendsClass}',  );  // Ternary operator (? :).  String result = hasGoodScore ? 'Good student' : 'Needs improvement';  print('Result: $result');  print('');}// ==================================================// EXERCISE 3 – CONTROL FLOW & FUNCTIONS// ==================================================void exercise3() {  print('========== EXERCISE 3 ==========');  // If/else block to check a score.  int score = 85;  if (score >= 90) {    print('Grade: A');  } else if (score >= 80) {    print('Grade: B');  } else if (score >= 70) {    print('Grade: C');  } else {    print('Grade: D');  }  // Switch case for the day of week.  int day = 3;  switch (day) {    case 1:      print('Monday');      break;    case 2:      print('Tuesday');      break;    case 3:      print('Wednesday');      break;    case 4:      print('Thursday');      break;    case 5:      print('Friday');      break;    case 6:      print('Saturday');      break;    case 7:      print('Sunday');      break;    default:      print('Invalid day');  }  List<String> subjects = [    'Dart',    'Flutter',    'Java',  ];  // Normal for loop.  print('Using for loop:');  for (int i = 0; i < subjects.length; i++) {    print('${i + 1}. ${subjects[i]}');  }  // For-in loop.  print('Using for-in loop:');  for (String subject in subjects) {    print(subject);  }  // forEach() loop.  print('Using forEach():');  subjects.forEach((subject) {    print(subject);  });  // Call a normal function.  int sum = addNumbers(10, 20);  print('10 + 20 = $sum');  // Call an arrow function.  int square = calculateSquare(5);  print('Square of 5 = $square');  print('');}// Normal function.int addNumbers(int a, int b) {  return a + b;}// Arrow function.int calculateSquare(int number) => number * number;// ==================================================// EXERCISE 4 – INTRO TO OOP// ==================================================void exercise4() {  print('========== EXERCISE 4 ==========');  // Create an object using the normal constructor.  Car car1 = Car('Toyota');  // Create an object using the named constructor.  Car car2 = Car.withDefaultBrand();  // Call the method of the Car class.  print(car1.startEngine());  print(car2.startEngine());  // Create an ElectricCar object.  ElectricCar electricCar = ElectricCar('Tesla');  // The overridden method is called.  print(electricCar.startEngine());  print('');}// Base class.class Car {  String brand;  // Normal constructor.  Car(this.brand);  // Named constructor.  Car.withDefaultBrand() : brand = 'Honda';  // Method.  String startEngine() {    return '$brand car engine is starting.';  }}// Subclass inherits from Car.class ElectricCar extends Car {  ElectricCar(String brand) : super(brand);  // Override the method from Car.  @override  String startEngine() {    return '$brand electric car starts silently.';  }}// ==================================================// EXERCISE 5 – ASYNC, FUTURE, NULL SAFETY & STREAMS// ==================================================Future<void> exercise5() async {  print('========== EXERCISE 5 ==========');  print('Loading data...');  // await waits for the Future to complete.  String data = await loadData();  print('Data loaded: $data');  // -----------------------------------------------  // NULL SAFETY  // -----------------------------------------------  String? nullableName = null;  // ?? provides a default value when the variable is null.  String displayName = nullableName ?? 'Guest';  print('Name using ??: $displayName');  // ? allows access only when the value is not null.  print('Name length using ?: ${nullableName?.length}');  // ! tells Dart that the value is not null.  String? userName = 'Tai';  print('Name using !: ${userName!.toUpperCase()}');  // -----------------------------------------------  // STREAM  // -----------------------------------------------  print('Stream values:');  // Create a simple Stream of integers.  Stream<int> numberStream = Stream.fromIterable([1, 2, 3, 4, 5]);  // Listen to values emitted by the Stream.  await numberStream.listen((number) {    print('Received: $number');  }).asFuture();  print('Stream completed.');  print('');}// Async function using Future and Future.delayed().Future<String> loadData() async {  // Simulate a loading operation that takes 2 seconds.  await Future.delayed(const Duration(seconds: 2));  return 'Dart data loaded successfully';}
+import 'dart:async';
+
+void main() async {
+  print('========== DART ESSENTIALS PRACTICE LAB ==========\n');
+
+  exercise1();
+  exercise2();
+  exercise3();
+  exercise4();
+
+  await exercise5();
+}
+
+// ==================================================
+// EXERCISE 1 ï¿½ BASIC SYNTAX & DATA TYPES
+// ==================================================
+
+void exercise1() {
+  print('========== EXERCISE 1 ==========');
+
+  // Declare variables using basic Dart data types.
+  int age = 21;
+  double height = 1.70;
+  String name = 'Tai';
+  bool isStudent = true;
+
+  // Print values using string interpolation.
+  print('Name: $name');
+  print('Age: $age');
+  print('Height: $height m');
+  print('Is student: $isStudent');
+
+  // String interpolation can also contain expressions.
+  print('Next year, $name will be ${age + 1} years old.');
+
+  print('');
+}
+
+// ==================================================
+// EXERCISE 2 ï¿½ COLLECTIONS & OPERATORS
+// ==================================================
+
+void exercise2() {
+  print('========== EXERCISE 2 ==========');
+
+  // Create a List of integers.
+  List<int> numbers = [10, 20, 30, 40, 50];
+
+  print('Original list: $numbers');
+
+  // Indexing is used to access an element in a List.
+  print('First number: ${numbers[0]}');
+
+  // Arithmetic operators.
+  int sum = numbers[0] + numbers[1];
+  int difference = numbers[2] - numbers[0];
+
+  print('10 + 20 = $sum');
+  print('30 - 10 = $difference');
+
+  // Comparison operator.
+  print('Is 50 greater than 30? ${50 > 30}');
+
+  // Create a Set.
+  // A Set stores unique values.
+  Set<int> uniqueNumbers = {10, 20, 20, 30, 30, 40};
+
+  print('Set: $uniqueNumbers');
+
+  // add() adds a value to the Set.
+  uniqueNumbers.add(50);
+
+  // remove() removes a value from the Set.
+  uniqueNumbers.remove(10);
+
+  print('Set after add/remove: $uniqueNumbers');
+
+  // Create a Map using key-value pairs.
+  Map<String, dynamic> student = {
+    'name': 'Tai',
+    'age': 21,
+    'isStudent': true,
+  };
+
+  // Access Map values using their keys.
+  print('Student name: ${student['name']}');
+  print('Student age: ${student['age']}');
+
+  // Logical operators.
+  bool hasGoodScore = true;
+  bool attendsClass = true;
+
+  print(
+    'Eligible: ${hasGoodScore && attendsClass}',
+  );
+
+  // Ternary operator (? :).
+  String result = hasGoodScore ? 'Good student' : 'Needs improvement';
+
+  print('Result: $result');
+
+  print('');
+}
+
+// ==================================================
+// EXERCISE 3 ï¿½ CONTROL FLOW & FUNCTIONS
+// ==================================================
+
+void exercise3() {
+  print('========== EXERCISE 3 ==========');
+
+  // If/else block to check a score.
+  int score = 85;
+
+  if (score >= 90) {
+    print('Grade: A');
+  } else if (score >= 80) {
+    print('Grade: B');
+  } else if (score >= 70) {
+    print('Grade: C');
+  } else {
+    print('Grade: D');
+  }
+
+  // Switch case for the day of week.
+  int day = 3;
+
+  switch (day) {
+    case 1:
+      print('Monday');
+      break;
+    case 2:
+      print('Tuesday');
+      break;
+    case 3:
+      print('Wednesday');
+      break;
+    case 4:
+      print('Thursday');
+      break;
+    case 5:
+      print('Friday');
+      break;
+    case 6:
+      print('Saturday');
+      break;
+    case 7:
+      print('Sunday');
+      break;
+    default:
+      print('Invalid day');
+  }
+
+  List<String> subjects = [
+    'Dart',
+    'Flutter',
+    'Java',
+  ];
+
+  // Normal for loop.
+  print('Using for loop:');
+
+  for (int i = 0; i < subjects.length; i++) {
+    print('${i + 1}. ${subjects[i]}');
+  }
+
+  // For-in loop.
+  print('Using for-in loop:');
+
+  for (String subject in subjects) {
+    print(subject);
+  }
+
+  // forEach() loop.
+  print('Using forEach():');
+
+  subjects.forEach((subject) {
+    print(subject);
+  });
+
+  // Call a normal function.
+  int sum = addNumbers(10, 20);
+  print('10 + 20 = $sum');
+
+  // Call an arrow function.
+  int square = calculateSquare(5);
+  print('Square of 5 = $square');
+
+  print('');
+}
+
+// Normal function.
+int addNumbers(int a, int b) {
+  return a + b;
+}
+
+// Arrow function.
+int calculateSquare(int number) => number * number;
+
+// ==================================================
+// EXERCISE 4 ï¿½ INTRO TO OOP
+// ==================================================
+
+void exercise4() {
+  print('========== EXERCISE 4 ==========');
+
+  // Create an object using the normal constructor.
+  Car car1 = Car('Toyota');
+
+  // Create an object using the named constructor.
+  Car car2 = Car.withDefaultBrand();
+
+  // Call the method of the Car class.
+  print(car1.startEngine());
+  print(car2.startEngine());
+
+  // Create an ElectricCar object.
+  ElectricCar electricCar = ElectricCar('Tesla');
+
+  // The overridden method is called.
+  print(electricCar.startEngine());
+
+  print('');
+}
+
+// Base class.
+class Car {
+  String brand;
+
+  // Normal constructor.
+  Car(this.brand);
+
+  // Named constructor.
+  Car.withDefaultBrand() : brand = 'Honda';
+
+  // Method.
+  String startEngine() {
+    return '$brand car engine is starting.';
+  }
+}
+
+// Subclass inherits from Car.
+class ElectricCar extends Car {
+  ElectricCar(String brand) : super(brand);
+
+  // Override the method from Car.
+  @override
+  String startEngine() {
+    return '$brand electric car starts silently.';
+  }
+}
+
+// ==================================================
+// EXERCISE 5 ï¿½ ASYNC, FUTURE, NULL SAFETY & STREAMS
+// ==================================================
+
+Future<void> exercise5() async {
+  print('========== EXERCISE 5 ==========');
+
+  print('Loading data...');
+
+  // await waits for the Future to complete.
+  String data = await loadData();
+
+  print('Data loaded: $data');
+
+  // -----------------------------------------------
+  // NULL SAFETY
+  // -----------------------------------------------
+
+  String? nullableName = null;
+
+  // ?? provides a default value when the variable is null.
+  String displayName = nullableName ?? 'Guest';
+
+  print('Name using ??: $displayName');
+
+  // ? allows access only when the value is not null.
+  print('Name length using ?: ${nullableName?.length}');
+
+  // ! tells Dart that the value is not null.
+  String? userName = 'Tai';
+
+  print('Name using !: ${userName!.toUpperCase()}');
+
+  // -----------------------------------------------
+  // STREAM
+  // -----------------------------------------------
+
+  print('Stream values:');
+
+  // Create a simple Stream of integers.
+  Stream<int> numberStream = Stream.fromIterable([1, 2, 3, 4, 5]);
+
+  // Listen to values emitted by the Stream.
+  await numberStream.listen((number) {
+    print('Received: $number');
+  }).asFuture();
+
+  print('Stream completed.');
+
+  print('');
+}
+
+// Async function using Future and Future.delayed().
+Future<String> loadData() async {
+  // Simulate a loading operation that takes 2 seconds.
+  await Future.delayed(const Duration(seconds: 2));
+
+  return 'Dart data loaded successfully';
+}
