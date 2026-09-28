@@ -12,7 +12,7 @@ void main() async {
 }
 
 // ==================================================
-// EXERCISE 1 � BASIC SYNTAX & DATA TYPES
+// EXERCISE 1:  BASIC SYNTAX & DATA TYPES
 // ==================================================
 
 void exercise1() {
@@ -37,7 +37,7 @@ void exercise1() {
 }
 
 // ==================================================
-// EXERCISE 2 � COLLECTIONS & OPERATORS
+// EXERCISE 2: COLLECTIONS & OPERATORS
 // ==================================================
 
 void exercise2() {
@@ -76,11 +76,7 @@ void exercise2() {
   print('Set after add/remove: $uniqueNumbers');
 
   // Create a Map using key-value pairs.
-  Map<String, dynamic> student = {
-    'name': 'Tai',
-    'age': 21,
-    'isStudent': true,
-  };
+  Map<String, dynamic> student = {'name': 'Tai', 'age': 21, 'isStudent': true};
 
   // Access Map values using their keys.
   print('Student name: ${student['name']}');
@@ -90,9 +86,7 @@ void exercise2() {
   bool hasGoodScore = true;
   bool attendsClass = true;
 
-  print(
-    'Eligible: ${hasGoodScore && attendsClass}',
-  );
+  print('Eligible: ${hasGoodScore && attendsClass}');
 
   // Ternary operator (? :).
   String result = hasGoodScore ? 'Good student' : 'Needs improvement';
@@ -103,7 +97,7 @@ void exercise2() {
 }
 
 // ==================================================
-// EXERCISE 3 � CONTROL FLOW & FUNCTIONS
+// EXERCISE 3: CONTROL FLOW & FUNCTIONS
 // ==================================================
 
 void exercise3() {
@@ -151,11 +145,7 @@ void exercise3() {
       print('Invalid day');
   }
 
-  List<String> subjects = [
-    'Dart',
-    'Flutter',
-    'Java',
-  ];
+  List<String> subjects = ['Dart', 'Flutter', 'Java'];
 
   // Normal for loop.
   print('Using for loop:');
@@ -198,7 +188,7 @@ int addNumbers(int a, int b) {
 int calculateSquare(int number) => number * number;
 
 // ==================================================
-// EXERCISE 4 � INTRO TO OOP
+// EXERCISE 4: INTRO TO OOP
 // ==================================================
 
 void exercise4() {
@@ -251,7 +241,7 @@ class ElectricCar extends Car {
 }
 
 // ==================================================
-// EXERCISE 5 � ASYNC, FUTURE, NULL SAFETY & STREAMS
+// EXERCISE 5: ASYNC, FUTURE, NULL SAFETY & STREAMS
 // ==================================================
 
 Future<void> exercise5() async {
